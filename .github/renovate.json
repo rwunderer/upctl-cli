@@ -1,6 +1,17 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "github>rwunderer/renovate"
+    "github>rwunderer/renovate",
+    "regexManagers:dockerfileVersions"
+  ],
+
+  "packageRules": [
+    {
+      "matchPackageNames": ["upcloud-cli"],
+      "extractVersion": "^v(?<version>.*)$",
+      "addLabels": [
+        "renovate_publish"
+      ]
+    }
   ]
 }
