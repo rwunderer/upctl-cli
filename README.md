@@ -25,7 +25,9 @@ $ docker run --rm -it ghcr.io/rwunderer/upctl-cli:v2.10.0-minimal version
 
 ### Debug image
 
-The debug images is based on `gcr.io/distroless/static-debian12:debug-nonroot` and contains a busybox shell for use in ci images.
+The debug images is based on `gcr.io/distroless/base-debian12:debug-nonroot` and contains a busybox shell for use in ci images.
+As upctl's output is also available in json it also containts [jq](https://github.com/jqlang/jq).
+
 E.g. for GitLab CI:
 
 ```

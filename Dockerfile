@@ -5,6 +5,8 @@ FROM alpine:3.18.4@sha256:eece025e432126ce23f223450a0326fbebde39cdf496a85d8c0162
 
 # renovate: datasource=github-releases depName=upcloud-cli lookupName=UpCloudLtd/upcloud-cli
 ARG UPCTL_VERSION=2.10.0
+# renovate: datasource=github-releases depName=jq lookupName=jqlang/jq
+ARG JQ_VERSION=1.7
 ARG TARGETARCH
 ARG TARGETOS
 ARG TARGETVARIANT
@@ -13,6 +15,10 @@ WORKDIR /tmp
 
 RUN apk --no-cache add --upgrade \
     curl
+
+RUN curl -SsL -o jq https://github.com/jqlang/jq/releases/download/jq-${JQ_VERSION}/jq-linux-${TARGETARCH} && \
+    install jq /bin/jq && \
+    rm jq
 
 RUN ARCH=${TARGETARCH} && \
     [ "${ARCH}" == "amd64" ] && ARCH="x86_64" || true && \
@@ -34,8 +40,9 @@ ENTRYPOINT ["/bin/upctl"]
 #-------------------
 # Debug image
 #-------------------
-FROM gcr.io/distroless/static-debian12:debug-nonroot@sha256:12f9bf5f9955ae90e619520e58eeba839a7ec959e051a62a780de447f38d65ed as upctl-cli-debug
+FROM gcr.io/distroless/base-debian12:debug-nonroot@sha256:0cbc35da706a70b83a9fe1ab8392b9b9b84ef91bb8c5fbaf965fa50d2c1b4126 as upctl-cli-debug
 
+COPY --from=builder /bin/jq /bin/jq
 COPY --from=builder /bin/upctl /bin/upctl
 
 ENTRYPOINT ["/bin/upctl"]
