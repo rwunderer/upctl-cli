@@ -12,6 +12,10 @@
       "addLabels": [
         "renovate_publish"
       ]
+    },
+    {
+      "matchPackageNames": ["alpine"],
+      "automerge": true
     }
   ]
 }
