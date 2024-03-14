@@ -30,7 +30,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
-      - uses: butlerlogic/action-autotag@a825539276d173dbaa8d39fb45024d85d292f4f3 # 1.1.2
+      - uses: butlerlogic/action-autotag@7421fe0300091f3ef2134f627baaad42a156de10 # 1.1.4
         env:
           GITHUB_TOKEN: "${{ secrets.TAGGING_TOKEN }}"
         with:
