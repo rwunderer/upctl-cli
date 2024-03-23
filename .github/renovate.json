@@ -3,6 +3,7 @@
   "extends": [
     "github>rwunderer/renovate",
     "github>rwunderer/renovate:container-tools",
+    "github>rwunderer/renovate:cosign-version",
     "regexManagers:dockerfileVersions"
   ],
 
