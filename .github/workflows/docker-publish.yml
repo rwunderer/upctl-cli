@@ -24,9 +24,22 @@ jobs:
       # with sigstore/fulcio when running outside of PRs.
       id-token: write
 
+    strategy:
+      matrix:
+        image:
+        - minimal
+        - debug
+
+        include:
+        - suffix: -minimal
+          target: upctl-cli-minimal
+
+        - suffix: -debug
+          target: upctl-cli-debug
+
     uses: rwunderer/renovate/.github/workflows/reusable-docker-publish.yml@main
     with:
-      minimal-image: upctl-cli-minimal
-      debug-image: upctl-cli-debug
+      suffix: ${{ matrix.suffix }}
+      target: ${{ matrix.target }}
       docker-description: Minimal Docker image with UpCloud cli utility
     secrets: inherit
