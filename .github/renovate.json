@@ -4,12 +4,13 @@
     "github>rwunderer/renovate",
     "github>rwunderer/renovate:container-tools",
     "github>rwunderer/renovate:cosign-version",
-    "regexManagers:dockerfileVersions"
+    "customManagers:dockerfileVersions"
   ],
-
   "packageRules": [
     {
-      "matchPackageNames": ["upcloud-cli"],
+      "matchPackageNames": [
+        "upcloud-cli"
+      ],
       "extractVersion": "^v(?<version>.*)$",
       "automerge": true,
       "addLabels": [
