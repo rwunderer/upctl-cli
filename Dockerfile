@@ -40,7 +40,7 @@ ENTRYPOINT ["/bin/upctl"]
 #-------------------
 # Debug image
 #-------------------
-FROM gcr.io/distroless/base-debian12:debug-nonroot@sha256:a9c14330a664f1d1a549f9772c35eeac3f74828f6fd29530b8cc203103dd8085 as upctl-cli-debug
+FROM gcr.io/distroless/base-debian12:debug-nonroot@sha256:254c9629c6fad3f34af7ae24d76a74df0b4f436fc778d57d422721ad95ec31a2 as upctl-cli-debug
 
 COPY --from=builder /bin/jq /bin/jq
 COPY --from=builder /bin/upctl /bin/upctl
