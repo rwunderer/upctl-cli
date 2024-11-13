@@ -1,7 +1,7 @@
 #-------------------
 # Download upctl
 #-------------------
-FROM alpine:3.20.3@sha256:beefdbd8a1da6d2915566fde36db9db0b524eb737fc57cd1367effd16dc0d06d as builder
+FROM alpine:3.20.3@sha256:1e42bbe2508154c9126d48c2b8a75420c3544343bf86fd041fb7527e017a4b4a as builder
 
 # renovate: datasource=github-releases depName=upcloud-cli lookupName=UpCloudLtd/upcloud-cli
 ARG UPCTL_VERSION=3.11.1
