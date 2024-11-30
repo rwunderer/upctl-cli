@@ -31,7 +31,7 @@ RUN ARCH=${TARGETARCH} && \
 #-------------------
 # Minimal image
 #-------------------
-FROM gcr.io/distroless/static-debian12:nonroot@sha256:d71f4b239be2d412017b798a0a401c44c3049a3ca454838473a4c32ed076bfea as upctl-cli-minimal
+FROM gcr.io/distroless/static-debian12:nonroot@sha256:6cd937e9155bdfd805d1b94e037f9d6a899603306030936a3b11680af0c2ed58 as upctl-cli-minimal
 
 COPY --from=builder /bin/upctl /bin/upctl
 
