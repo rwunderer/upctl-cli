@@ -8,11 +8,12 @@
   ],
   "packageRules": [
     {
-      "matchPackageNames": [
+      "matchDepNames": [
         "upcloud-cli"
       ],
       "extractVersion": "^v(?<version>.*)$",
       "automerge": true,
+      "automergeType": "pr",
       "addLabels": [
         "renovate_publish"
       ]
