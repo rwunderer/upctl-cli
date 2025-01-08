@@ -4,7 +4,7 @@
 FROM alpine:3.21.1@sha256:b97e2a89d0b9e4011bb88c02ddf01c544b8c781acf1f4d559e7c8f12f1047ac3 as builder
 
 # renovate: datasource=github-releases depName=upcloud-cli lookupName=UpCloudLtd/upcloud-cli
-ARG UPCTL_VERSION=3.13.0
+ARG UPCTL_VERSION=3.14.0
 # renovate: datasource=github-releases depName=jq lookupName=jqlang/jq
 ARG JQ_VERSION=1.7
 ARG TARGETARCH
